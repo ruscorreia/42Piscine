@@ -1,0 +1,1 @@
+cat /etc/passwd | grep -v '^#' | awk 'NR % 2 == 0 {split($0, a, ":"); print a[1]}' | rev | sort -r | awk -v start="FT_LINE1" -v end="FT_LINE2" '$0 >= start && $0 <= end {printf "%s%s", sep, $0; sep=", "}' | sed 's/$/./'

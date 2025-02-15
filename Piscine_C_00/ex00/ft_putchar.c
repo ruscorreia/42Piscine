@@ -1,44 +1,22 @@
-#include "unistr.h"
+// ft_putchar.c
 
-void	ft_putchar(void)
+// Header 42 padrão
+/*
+** ***************************************************************************
+** Author: Rocorrei
+** Email: rusacoreia@hotmail.com
+** Created: 2025-02-10
+** Updated: SeuLogin 2025-02-15
+**
+** Description: Função ft_putchar para exibir um caractere na saída padrão.
+** ***************************************************************************
+*/
+
+#include <unistd.h> // Inclusão do cabeçalho necessário para a função write
+
+void    ft_putchar(char c); // Protótipo da função
+
+void    ft_putchar(char c)
 {
-	int i;
-	int j;
-	int k;
-
-    i = 0;
-    while (i <= 9) 
-    {
-        j = i + 1;
-        while (j <= 9) 
-	{
-            k = j + 1;
-            while (k <= 9) 
-	    {
-                // Imprime os três números
-		char ch = i + '0';
-		write(1,ch,1);
-                vh = j + '0';
-		 write(1,ch,1);
-                ch = k + '0';
-		 write(1,ch,1);
-                // Verifica se é necessário adicionar uma vírgula
-                if (i != 7 || j != 8 || k != 9) {
-			
-                    ch = ',';
-		    write(1,ch,1);
-
-
-                }
-                k++;
-            }
-            j++;
-        }
-        i++;
-    }
-}
-int main(void)
-{
-	ft_putchar();
-	return;
+    write(1, &c, 1); // Usando a função write para exibir o caractere
 }

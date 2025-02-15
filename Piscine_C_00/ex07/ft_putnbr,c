@@ -1,0 +1,43 @@
+// ft_putnbr.c
+
+// Header 42 padrão
+/*
+** ***************************************************************************
+** Author: Rocorrei
+** Email: rusacoreia@hotmail.com
+** Created: 2025-02-10
+** Updated: SeuLogin 2025-02-15
+**
+** Description: Função ft_putnbr para exibir um número inteiro.
+** ***************************************************************************
+*/
+
+#include <unistd.h> // Inclusão do cabeçalho necessário para a função write
+
+void    ft_putchar(char c); // Protótipo da função auxiliar ft_putchar
+
+void    ft_putnbr(int nb); // Protótipo da função ft_putnbr
+
+void    ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void    ft_putnbr(int nb)
+{
+    if (nb == -2147483648) // Caso especial para INT_MIN (-2147483648)
+    {
+        write(1, "-2147483648", 11); // Escreve diretamente o valor
+        return ;
+    }
+    if (nb < 0) // Verifica se o número é negativo
+    {
+        ft_putchar('-'); // Escreve o sinal negativo
+        nb = -nb; // Converte o número para positivo
+    }
+    if (nb > 9) // Se o número tem mais de um dígito
+    {
+        ft_putnbr(nb / 10); // Chamada recursiva para o próximo dígito
+    }
+    ft_putchar(nb % 10 + '0'); // Escreve o último dígito convertido para caractere
+}
