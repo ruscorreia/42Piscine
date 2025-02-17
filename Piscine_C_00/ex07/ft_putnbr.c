@@ -1,23 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rocorrei <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/16 09:22:50 by rocorrei          #+#    #+#             */
-/*   Updated: 2025/02/16 09:30:00 by rocorrei         ###   ########.fr       */
+/*   Created: 2025/02/17 13:41:28 by rocorrei          #+#    #+#             */
+/*   Updated: 2025/02/17 13:42:11 by rocorrei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rush(int x, int y);
+#include <unistd.h>
 
-int	main(void)
+void	ft_putchar(char c);
+
+void	ft_putnbr(int nb);
+
+void	ft_putchar(char c)
 {
-	rush(5, 3);
-	rush(5, 1);
-	rush(1, 1);
-	rush(1, 5);
-	rush(4, 4);
-	return (0);
+	write(1, &c, 1);
+}
+
+voidft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+	{
+		write(1, "-2147483648", 11);
+		return ;
+	}
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		nb = -nb;
+	}
+	if (nb > 9)
+	{
+		ft_putnbr(nb / 10);
+	}
+	ft_putchar(nb % 10 + '0');
 }

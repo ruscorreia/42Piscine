@@ -1,22 +1,20 @@
-// ft_putchar.c
+/* ************************************************************************** */
+/**/
+/*:::  ::::::::   */
+/*   ft_putchar.c   :+:  :+::+:   */
+/*+:+ +:+ +:+ */
+/*   By: rocorrei <marvin@42.fr>+#+  +:+   +#+*/
+/*+#+#+#+#+#+   +#+   */
+/*   Created: 2025/02/17 10:55:31 by rocorrei  #+##+# */
+/*   Updated: 2025/02/17 10:56:03 by rocorrei ###   ########.fr   */
+/**/
+/* ************************************************************************** */
 
-// Header 42 padrão
-/*
-** ***************************************************************************
-** Author: Rocorrei
-** Email: rusacoreia@hotmail.com
-** Created: 2025-02-10
-** Updated: SeuLogin 2025-02-15
-**
-** Description: Função ft_putchar para exibir um caractere na saída padrão.
-** ***************************************************************************
-*/
+#include <unistd.h>
 
-#include <unistd.h> // Inclusão do cabeçalho necessário para a função write
+void	ft_putchar(char c);
 
-void    ft_putchar(char c); // Protótipo da função
-
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1); // Usando a função write para exibir o caractere
+	write(1, &c, 1);
 }

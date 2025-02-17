@@ -1,28 +1,27 @@
-// ft_print_numbers.c
+/* ************************************************************************** */
+/**/
+/*:::  ::::::::   */
+/*   ft_print_numbers.c :+:  :+::+:   */
+/*+:+ +:+ +:+ */
+/*   By: rocorrei <marvin@42.fr>+#+  +:+   +#+*/
+/*+#+#+#+#+#+   +#+   */
+/*   Created: 2025/02/17 10:58:11 by rocorrei  #+##+# */
+/*   Updated: 2025/02/17 10:58:23 by rocorrei ###   ########.fr   */
+/**/
+/* ************************************************************************** */
 
-// Header 42 padrão
-/*
-** ***************************************************************************
-** Author: Rocorrei
-** Email: rusacoreia@hotmail.com
-** Created: 2025-02-10
-** Updated: SeuLogin 2025-02-15
-**
-** Description: Função ft_print_numbers para exibir todos os dígitos de 0 a 9.
-** ***************************************************************************
-*/
+#include <unistd.h>
 
-#include <unistd.h> // Inclusão do cabeçalho necessário para a função write
+void	ft_print_numbers(void);
 
-void    ft_print_numbers(void); // Protótipo da função
-
-void    ft_print_numbers(void)
+void	ft_print_numbers(void)
 {
-    char c = '0'; // Inicializa o caractere com '0'
+	char	c;
 
-    while (c <= '9') // Loop enquanto o caractere for menor ou igual a '9'
-    {
-        write(1, &c, 1); // Escreve o caractere na saída padrão
-        c++;             // Incrementa o caractere para a próxima iteração
-    }
+	c = '0';
+	while (c <= '9')
+	{
+		write(1, &c, 1);
+		c++;
+	}
 }
