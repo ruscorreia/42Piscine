@@ -1,20 +1,23 @@
 #include <unistd>
 
-char	*ft_strncpy (char *dest, char *scr, unsigned int n)
+char	*ft_strncpy(char *dest, char *src, unsigned int n) 
 {
 	unsigned int i;
+	char *inicio_dest;
 
 	i = 0;
-	while (i < n && src != '\0')
+	*inicio_dest = dest;
+	while (i < n && *src != '\0')
 	{
 		*dest = *src;
-		i++;
 		src++;
-	}
-	while (i < n)
-	{
-		*dest = '\0';
+		dest++;
 		i++;
 	}
-	return dest;
+	while (i < n) 
+	{
+        
+        i++;
+    }
+	return (inicio_dest);
 }

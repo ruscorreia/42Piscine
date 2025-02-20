@@ -1,15 +1,16 @@
 #include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strcpy(char *dest, char *src) 
 {
-	int i;
+	char *inicio_dest;
 
-	i = 0;
+	*inicio_dest = dest;
 	while (*src != '\0')
 	{
 		*dest = *src;
 		src++;
+		dest++;
 	}
-	*src = '\0';
-	return dest;
+	*dest = '\0';
+	return (inicio_dest);
 }
