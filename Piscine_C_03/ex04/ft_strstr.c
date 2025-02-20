@@ -1,23 +1,27 @@
 #include <unistd.h>
 
-char	*ft_strstr(char *str, char *to_find) 
+char *ft_strstr(char *str, char *to_find) 
 {
-	if (*to_find == '\0') 
-		return (char *)str;
-	while (*str != '\0') 
+    if (*to_find == '\0') 
 	{
-		char *p1;
-		char *p2;
+        return (char *)str;
+    }
 
-		*p1= str;
-		*p2= to_find;
-		while (*p1 != '\0' && *p2 != '\0' && (*p1 == *p2)) 
+    while (*str) 
+	{
+        char *p1 = str;
+        char *p2 = to_find;
+        while (*p1 && *p2 && (*p1 == *p2)) 
 		{
-			p1++;
-			p2++;
-		}	
-		if (*p2 == '\0') 
-			return (char *)str;
-		str++;
-	}
+            p1++;
+            p2++;
+        }
+
+        if (*p2 == '\0') 
+		{
+            return (char *)str;
+        }
+        str++;
+    }
+    return NULL;
 }
