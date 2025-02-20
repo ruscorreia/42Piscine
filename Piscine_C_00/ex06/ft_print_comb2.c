@@ -1,41 +1,38 @@
-/* ************************************************************************** */
-/**/
-/*:::  ::::::::   */
-/*   ft_print_comb2.c   :+:  :+::+:   */
-/*+:+ +:+ +:+ */
-/*   By: rocorrei <marvin@42.fr>+#+  +:+   +#+*/
-/*+#+#+#+#+#+   +#+   */
-/*   Created: 2025/02/17 10:59:30 by rocorrei  #+##+# */
-/*   Updated: 2025/02/17 10:59:43 by rocorrei ###   ########.fr   */
-/**/
-/* ************************************************************************** */
+#include <unistd.h>
+
+void    ft_print_comb2(void);
 
 #include <unistd.h>
 
-void	ft_print_comb2(void);
-
-void	ft_print_comb2(void)
+void    ft_writeint(int i)
 {
-	int	i;
-	int	j;
+    char a = i + '0';
+    write(1, &a, 1);
+}
 
-	i = 0;
-	while (i <= 98)
-	{
-		j = i + 1;
-		while (j <= 99)
-		{
-			if (i < 10)
-				write(1, "0", 1);
-			write(1, &i, 1);
-			write(1, " ", 1);
-			if (j < 10)
-				write(1, "0", 1);
-			write(1, &j, 1);
-			if (i != 98 || j != 99)
-				write(1, ", ", 2);
-			j++;
-		}
-		i++;
-	}
+void    ft_print_comb2(void)
+{
+    int i;
+    char *str = " ";
+    
+    i = 0;
+    while (i <= 99) 
+    {
+        int j;
+        j = i + 1;
+        while (j <= 99)
+        {
+            ft_writeint(i / 10 );
+            ft_writeint(i % 10 );            
+            write(1, str, 1);
+            ft_writeint(j / 10 );
+            ft_writeint(j % 10 );
+            if (i != 98 || j != 99)
+            {
+                write(1, ", ", 2);
+            }
+            j++;
+        }
+        i++;
+    }
 }
